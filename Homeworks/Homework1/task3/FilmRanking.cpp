@@ -4,7 +4,7 @@
 void FilmRanking::copy(const FilmRanking &otherFilmRanking)
 {
     this->filmCount = otherFilmRanking.filmCount;
-    this->filmArray = new Film;
+    this->filmArray = new Film[filmCount];
 }
 
 void FilmRanking::erase()
@@ -30,7 +30,7 @@ void FilmRanking::sort(Film *filmArray, int size)
 
 FilmRanking::FilmRanking()
 {
-    this->filmArray = new Film;
+    this->filmArray = new Film[filmCount];
     this->filmCount = 0;
 }
 
@@ -54,9 +54,8 @@ FilmRanking::~FilmRanking()
     this->erase();
 }
 
-void FilmRanking::setFilmArray(const Film* _filmArray)
+void FilmRanking::setFilmArray(const Film *_filmArray)
 {
     delete[] this->filmArray;
-    this->filmArray = new Film;
-    
+    this->filmArray = new Film[filmCount];
 }
