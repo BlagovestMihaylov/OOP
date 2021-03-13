@@ -24,6 +24,11 @@ Film::Film()
     this->awards = 0;
 }
 
+Film::Film(const Film &other)
+{
+    this->copy(other);
+}
+
 Film &Film::operator=(const Film &otherFilm)
 {
     if (this != &otherFilm)
