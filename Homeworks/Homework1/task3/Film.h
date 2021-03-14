@@ -1,15 +1,16 @@
+//#pragma once
 #include <iostream>
 #include <cstring>
 
 class Film
 {
 private:
-    char *name;
-    char *directorName;
     void copy(const Film &otherFilm);
     void erase();
 
 public:
+    char *name;
+    char *directorName;
     int awards;
     Film();
     Film &operator=(const Film &otherFilm);

@@ -1,3 +1,4 @@
+//#pragma once
 #include <iostream>
 #include <cstring>
 #include "Film.h"
