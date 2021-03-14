@@ -50,7 +50,7 @@ void Crypto::print() const
 
 void Crypto::priceDifference() const
 {
-    double percentage = (this->currentPrice / this->lastPrice)*100 - 100;
+    double percentage = (this->currentPrice / this->lastPrice) * 100 - 100;
 
     if (percentage > 0)
         std::cout << "Стойността на " << this->name << " се е повишила от " << this->lastPrice << " до " << this->currentPrice << ", което е растеж от " << percentage << "%" << std::endl;
