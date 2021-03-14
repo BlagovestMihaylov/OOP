@@ -3,7 +3,6 @@
 
 int main()
 {
-
     Crypto c1;
     c1.setName("FMI_coin");
     c1.setLastPrice(69);
