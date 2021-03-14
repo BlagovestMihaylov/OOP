@@ -1,5 +1,6 @@
 #include <iostream>
-#include "Film.h"
+//#include "Film.h"
+#include "FilmRanking.h"
 
 int main()
 {
@@ -9,4 +10,6 @@ int main()
     film1.setDirectorName("Stefan Gergzhikov");
     film1.setName("Horror in FMI");
     film1.Print();
+
+    
 }
