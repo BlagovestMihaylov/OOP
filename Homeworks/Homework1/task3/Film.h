@@ -5,13 +5,13 @@
 class Film
 {
 private:
+    char *name;
+    char *directorName;
+    int awards;
     void copy(const Film &otherFilm);
     void erase();
 
 public:
-    char *name;
-    char *directorName;
-    int awards;
     Film();
     Film &operator=(const Film &otherFilm);
     Film(const Film &otherFilm);
