@@ -12,7 +12,7 @@ Crypto::Crypto()
 void Crypto::setName(const char *_name)
 {
     delete[] this->name;
-    this->name = new char[strlen(_name) + 1];
+    this->name = new char[31];
     strcpy(this->name, _name);
 }
 
