@@ -1,14 +1,24 @@
-#include "String.h"
+#include <iostream>
+#include "MyString.h"
+#include "EarthCard.h"
+#include "FireCard.h"
+#include "WindCard.h"
+#include "WaterCard.h"
 
 int main()
 {
-    String s1 = "Hello";
-    s1.printString();
-    String s2 = " world";
-    //String s3 = s1 + s2;
-    s1.add(s2);
-    s1.printString();
-   // s3.printString();
-
-    return 0;
+    EarthCard Earth("Darius", 10, 69);
+    Earth.addPower(21);
+    Earth.changeCardName("Malphite");
+    Earth.FullStats();
+    std::cout << std::endl;
+    FireCard Fire("Brand", 15, 75);
+    Fire.addPower(420);
+    Fire.FullStats();
+    std::cout << std::endl;
+    WindCard Wind("Yasuo", 1337, 55);
+    Wind.FullStats();
+    std::cout << std::endl;
+    WaterCard Water("Nami", 0, 1234);
+    Water.FullStats();
 }
