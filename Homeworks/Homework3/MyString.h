@@ -1,9 +1,13 @@
 #ifndef MYSTRING_H
 #define MYSTRING_H
 #include <iostream>
+#include <fstream>
 
 class MyString
 {
+    friend std::ostream &operator<<(std::ostream &iostream, const MyString &_string);
+    friend std::istream &operator>>(std::istream &iostream, const MyString &_string);
+
 private:
     char *string;
     size_t length;
@@ -51,5 +55,14 @@ public:
     //Destructor
     ~MyString();
 };
+// std::ostream &operator<<(std::ostream &iostream, const MyString &_string)
+// {
+//     return (iostream << _string.string);
+// }
 
+// std::istream &operator>>(std::istream &iostream, const MyString &_string)
+// {
+//     iostream >> _string.string;
+//     return iostream;
+// }
 #endif

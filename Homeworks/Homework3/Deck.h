@@ -1,3 +1,5 @@
+#ifndef DECK_H
+#define DECK_H
 #include <iostream>
 #include "EarthCard.h"
 #include "WaterCard.h"
@@ -33,8 +35,15 @@ public:
     Deck operator+(const T &);
     Deck &operator+=(const T &);
     void ShowDeck() const;
+    size_t getSize() const;
     T &operator[](size_t pos);
 };
+
+template <typename T>
+size_t Deck<T>::getSize() const
+{
+    return size;
+}
 
 template <typename T>
 Deck<T>::Deck()
@@ -109,3 +118,4 @@ void Deck<T>::ShowDeck() const
         std::cout << std::endl;
     }
 }
+#endif

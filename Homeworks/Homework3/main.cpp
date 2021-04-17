@@ -5,6 +5,7 @@
 #include "WindCard.h"
 #include "WaterCard.h"
 #include "Deck.h"
+#include "Player.h"
 
 int main()
 {
@@ -32,16 +33,25 @@ int main()
     earhtDeck.addCard(Earth1);
     earhtDeck.addCard(Earth2);
     earhtDeck.addCard(Earth3);
-    //earhtDeck.ShowDeck();
-    EarthCard e = earhtDeck.drawCard();
+    earhtDeck.ShowDeck();
+    //EarthCard e = earhtDeck.drawCard();
     earhtDeck.addCard(Earth4);
-    std::cout << "Old deck" << std::endl;
-    earhtDeck.ShowDeck();
+    // std::cout << "Old deck" << std::endl;
+    // earhtDeck.ShowDeck();
 
-    std::cout << std::endl;
-    std::cout << std::endl;
-    std::cout << std::endl;
-    std::cout << "New deck" << std::endl;
-    earhtDeck.shuffle();
+    // std::cout << std::endl;
+    // std::cout << std::endl;
+    // std::cout << std::endl;
+    // std::cout << "New deck" << std::endl;
+    // earhtDeck.shuffle();
     earhtDeck.ShowDeck();
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+
+    Player<EarthCard, WaterCard> earthPlayer("Blagovest", 3, 2);
+    earthPlayer.setPrimaryDeck(earhtDeck);
+    EarthCard t;
+    t = earthPlayer.drawCard();
+    earthPlayer.showPrimeryDeck();
 }
