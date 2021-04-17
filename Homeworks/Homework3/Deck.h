@@ -26,13 +26,45 @@ private:
     }
 
 public:
+    Deck();
     void shuffle();
     void addCard(T &);
     T drawCard();
     Deck operator+(const T &);
-    Deck operator+=(const T &);
+    Deck &operator+=(const T &);
     void ShowDeck() const;
+    T &operator[](size_t pos);
 };
+
+template <typename T>
+Deck<T>::Deck()
+{
+    size = 0;
+}
+
+template <typename T>
+T &Deck<T>::operator[](size_t pos)
+{
+    return container[pos];
+}
+
+template <typename T>
+Deck<T> Deck<T>::operator+(const T &card)
+{
+    Deck<T> temp;
+    for (int i = 0; i < size; i++)
+    {
+        temp[i] = container[i];
+    }
+    temp.addCard(card);
+    return temp;
+}
+template <typename T>
+Deck<T> &Deck<T>::operator+=(const T &card)
+{
+    container[size++] = card;
+    return container;
+}
 
 template <typename T>
 void Deck<T>::addCard(T &card)
