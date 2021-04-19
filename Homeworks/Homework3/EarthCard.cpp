@@ -40,13 +40,13 @@ void EarthCard::changeCardName(MyString _cardName)
     cardName = _cardName;
 }
 
-void EarthCard::changeBaseDemage(size_t _base)
+void EarthCard::changeBaseDemage(int _base)
 {
-    baseDemage = _base;
-    overallDemage = bonusDemage + baseDemage;
+    baseDemage += _base;
+    overallDemage += bonusDemage + baseDemage;
 }
 
-void EarthCard::changeBonusDemage(size_t _bonus)
+void EarthCard::changeBonusDemage(int _bonus)
 {
     bonusDemage = _bonus;
     overallDemage = bonusDemage + baseDemage;

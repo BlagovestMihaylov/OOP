@@ -40,15 +40,15 @@ void FireCard::changeCardName(MyString _cardName)
     cardName = _cardName;
 }
 
-void FireCard::changeBaseDemage(size_t _base)
+void FireCard::changeBaseDemage(int _base)
 {
-    baseDemage = _base;
+    baseDemage += _base;
     overallDemage = bonusDemage + baseDemage;
 }
 
-void FireCard::changeBonusDemage(size_t _bonus)
+void FireCard::changeBonusDemage(int _bonus)
 {
-    bonusDemage = _bonus;
+    bonusDemage += _bonus;
     overallDemage = bonusDemage + baseDemage;
 }
 

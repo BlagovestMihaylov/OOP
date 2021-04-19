@@ -1,3 +1,6 @@
+#ifndef DECK_H
+#define DECK_H
+
 #include <iostream>
 #include "EarthCard.h"
 #include "WaterCard.h"
@@ -27,14 +30,35 @@ private:
 
 public:
     Deck();
+    size_t getSize();
     void shuffle();
     void addCard(T &);
     T drawCard();
+    Deck operator=(const T &);
     Deck operator+(const T &);
     Deck &operator+=(const T &);
     void ShowDeck() const;
     T &operator[](size_t pos);
 };
+
+template <typename T>
+size_t Deck<T>::getSize()
+{
+    return size;
+}
+
+template <typename T>
+Deck<T> Deck<T>::operator=(const T &_other)
+{
+    if (*this != &_other)
+    {
+        for (size_t i = 0; i < _other.getSize(); i++)
+        {
+            container[i] = _other[i];
+        }
+    }
+    return *this;
+}
 
 template <typename T>
 Deck<T>::Deck()
@@ -45,7 +69,10 @@ Deck<T>::Deck()
 template <typename T>
 T &Deck<T>::operator[](size_t pos)
 {
-    return container[pos];
+    if (pos < size)
+        return container[pos];
+    else
+        std::cout << "There less than " << pos << " card in the deck" << std::endl;
 }
 
 template <typename T>
@@ -104,8 +131,10 @@ void Deck<T>::ShowDeck() const
 {
     for (size_t i = 0; i < size; i++)
     {
-        std::cout << i << std::endl;
+        std::cout << "Card: " << i + 1 << std::endl;
         container[i].FullStats();
-        std::cout << std::endl;
     }
+    std::cout << std::endl;
 }
+
+#endif

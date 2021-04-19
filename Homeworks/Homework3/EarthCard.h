@@ -18,8 +18,8 @@ public:
     EarthCard(MyString, size_t, size_t);
 
     void changeCardName(MyString);
-    void changeBaseDemage(size_t);
-    void changeBonusDemage(size_t);
+    void changeBaseDemage(int);
+    void changeBonusDemage(int);
     void addPower(size_t);
 
     MyString seeCardName() const;
