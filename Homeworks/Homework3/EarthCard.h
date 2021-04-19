@@ -16,7 +16,7 @@ public:
     EarthCard(MyString);
     EarthCard(MyString, size_t);
     EarthCard(MyString, size_t, size_t);
-    EarthCard(EarthCard&);
+    //EarthCard(EarthCard&);
 
     void changeCardName(MyString);
     void changeBaseDemage(size_t);

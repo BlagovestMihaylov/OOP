@@ -35,14 +35,14 @@ EarthCard::EarthCard(MyString _carName, size_t _base, size_t _bonus)
     overallDemage = bonusDemage + baseDemage;
 }
 
-EarthCard::EarthCard(EarthCard &E)
-{
-    cardName = E.cardName;
-    cardType = 3;
-    baseDemage = E.baseDemage;
-    bonusDemage = E.bonusDemage;
-    overallDemage = baseDemage + overallDemage;
-}
+// EarthCard::EarthCard(EarthCard &E)
+// {
+//     cardName = E.cardName;
+//     cardType = 3;
+//     baseDemage = E.baseDemage;
+//     bonusDemage = E.bonusDemage;
+//     overallDemage = baseDemage + overallDemage;
+// }
 
 void EarthCard::changeCardName(MyString _cardName)
 {

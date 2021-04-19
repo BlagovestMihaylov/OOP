@@ -19,7 +19,7 @@ public:
     void setPrimaryDeck(Deck<T>);
     size_t playerWins() const;
     size_t playerLosses() const;
-    T drawCard();
+  //  T drawCard();
     void showPrimeryDeck() const;
     T drawFromPrimaryDeck();
     V drawFromSecondaryDeck();
@@ -42,29 +42,29 @@ void Player<T, V>::setPrimaryDeck(Deck<T> _primaryDeck)
     }
 }
 
-// template <typename T, typename V>
-// T Player<T, V>::drawFromPrimaryDeck()
-// {
-//     return primaryDeck.drawCard();
-// }
-
-// template <typename T, typename V>
-// V Player<T, V>::drawFromSecondaryDeck()
-// {
-//     return secondaryDeck.drawCard();
-// }
+template <typename T, typename V>
+T Player<T, V>::drawFromPrimaryDeck()
+{
+    return primaryDeck.drawCard();
+}
 
 template <typename T, typename V>
-T Player<T, V>::drawCard()
+V Player<T, V>::drawFromSecondaryDeck()
 {
-    int i = rand() % 2 + 1;
-    if (i == 1)
-       return primaryDeck.drawCard();
-    else
-    {
-       return secondaryDeck.drawCard();
-    }
+    return secondaryDeck.drawCard();
 }
+
+// template <typename T, typename V>
+// T Player<T, V>::drawCard()
+// {
+//     int i = rand() % 2 + 1;
+//     if (i == 1)
+//        return primaryDeck.drawCard();
+//     else
+//     {
+//        return secondaryDeck.drawCard();
+//     }
+// }
 
 template <typename T, typename V>
 void Player<T, V>::fullStats() const

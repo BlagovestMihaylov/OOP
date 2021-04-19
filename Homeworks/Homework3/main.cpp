@@ -52,6 +52,7 @@ int main()
     Player<EarthCard, WaterCard> earthPlayer("Blagovest", 3, 2);
     earthPlayer.setPrimaryDeck(earhtDeck);
     EarthCard t;
-    t = earthPlayer.drawCard();
+    t = earthPlayer.drawFromPrimaryDeck();
     earthPlayer.showPrimeryDeck();
+    t.FullStats();
 }
