@@ -6,8 +6,6 @@
 #include <fstream>
 
 template <typename T, typename V>
-
-template <typename T, typename V>
 class Player
 {
 private:
