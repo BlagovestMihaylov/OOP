@@ -1,9 +1,13 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include "Deck.h"
 #include "MyString.h"
 #include <fstream>
 
 template <typename T, typename V>
 
+template <typename T, typename V>
 class Player
 {
 private:
@@ -15,124 +19,88 @@ private:
 
 public:
     Player();
-    Player(MyString, size_t, size_t);
-    void setPrimaryDeck(Deck<T>);
-    size_t playerWins() const;
-    size_t playerLosses() const;
-  //  T drawCard();
-    void showPrimeryDeck() const;
+    // Player(Mystring, size_t, size_t);
     T drawFromPrimaryDeck();
     V drawFromSecondaryDeck();
-    void savePlayer(const MyString);
-    void loadPlayer(MyString);
-    void fullStats() const;
+    void changePlayerName(MyString);
+    void changeWins(size_t);
+    void changeLosses(size_t);
+    void savePlayer();
+    void addPrimaryDeck(Deck<T>);
+    void addSecondaryDeck(Deck<V>);
+    void FullStats() const;
+    Player<T, V> loadPlayer();
 };
+
 template <typename T, typename V>
-void Player<T, V>::showPrimeryDeck() const
+void Player<T, V>::FullStats() const
 {
+    std::cout << playerName.c_str() << std::endl;
+    std::cout << "Wins: " << wins << " Losses: " << losses << std::endl;
+    std::cout << "Primary Deck:" << std::endl;
     primaryDeck.ShowDeck();
+    std::cout << "Secondary Deck:" << std::endl;
+    secondaryDeck.ShowDeck();
 }
 
 template <typename T, typename V>
-void Player<T, V>::setPrimaryDeck(Deck<T> _primaryDeck)
+void Player<T, V>::addPrimaryDeck(Deck<T> _primaryDeck)
 {
-    for (int i = 0; i < _primaryDeck.getSize(); i++)
-    {
-        primaryDeck[i] = _primaryDeck[i];
-    }
+    primaryDeck = _primaryDeck;
 }
 
 template <typename T, typename V>
-T Player<T, V>::drawFromPrimaryDeck()
+void Player<T, V>::addSecondaryDeck(Deck<V> _secondaryDeck)
 {
-    return primaryDeck.drawCard();
+    secondaryDeck = _secondaryDeck;
 }
 
 template <typename T, typename V>
-V Player<T, V>::drawFromSecondaryDeck()
-{
-    return secondaryDeck.drawCard();
-}
-
-// template <typename T, typename V>
-// T Player<T, V>::drawCard()
-// {
-//     int i = rand() % 2 + 1;
-//     if (i == 1)
-//        return primaryDeck.drawCard();
-//     else
-//     {
-//        return secondaryDeck.drawCard();
-//     }
-// }
-
-template <typename T, typename V>
-void Player<T, V>::fullStats() const
-{
-    playerName.printString();
-    std::cout << " wins: " << wins << " losses:" << losses << std::endl;
-}
-
-template <typename T, typename V>
-
-Player<T, V>::Player(MyString _name, size_t _wins, size_t _losses)
-{
-    playerName = _name;
-    wins = _wins;
-    losses = _losses;
-}
-
-template <typename T, typename V>
-
 Player<T, V>::Player()
 {
-    playerName = "Unknown Player";
+    playerName = "Unknown player";
     wins = 0;
     losses = 0;
 }
 
 // template <typename T, typename V>
-
-// void Player<T,V>::loadPlayer(MyString file)
+// Player<T, V>::Player(MyString _name, size_t _wins, size_t _losses)
 // {
-//     std::ifstream in;
-//     char temp;
-//     in.open(file.c_str(), std::ios::in);
-//     if (in.is_open())
-//     {
-//         while (temp != ' ')
-//         {
-//             in >> temp;
-//             playerName.push_back(temp);
-//         }
-//     }
-//     in.close();emplate <typename T>
-// void Player<T,V>::loadPlayer(MyString file)
-// {
-//     std::ifstream in;
-//     char temp;
-//     in.open(file.c_str(), std::ios::in);
-//     if (in.is_open())
-//     {
-//         while (temp != ' ')
-//         {
-//             in >> temp;
-//             playerName.push_back(temp);
-//         }
-//     }
-//     in.close();
-// }
+//     playerName = _name;
+//     wins = _wins;
+//     losses = _losses;
+//     primaryDeck();
+//     secondaryDeck();
 // }
 
 template <typename T, typename V>
-
-size_t Player<T, V>::playerWins() const
+void Player<T, V>::changePlayerName(MyString _name)
 {
-    return wins;
+    playerName = _name;
 }
+
 template <typename T, typename V>
-
-size_t Player<T, V>::playerLosses() const
+void Player<T, V>::changeWins(size_t _wins)
 {
-    return losses;
+    wins = _wins;
 }
+
+template <typename T, typename V>
+void Player<T, V>::changeLosses(size_t _losses)
+{
+    losses = _losses;
+}
+
+template <typename T, typename V>
+T Player<T, V>::drawFromPrimaryDeck()
+{
+    primaryDeck.drawCard();
+}
+
+template <typename T, typename V>
+V Player<T, V>::drawFromSecondaryDeck()
+{
+    secondaryDeck.drawCard();
+}
+
+#endif

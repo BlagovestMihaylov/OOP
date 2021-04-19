@@ -1,5 +1,9 @@
 #ifndef DECK_H
 #define DECK_H
+<<<<<<< HEAD
+=======
+
+>>>>>>> c84b68129a09c74d4785f275994829183572eb76
 #include <iostream>
 #include "EarthCard.h"
 #include "WaterCard.h"
@@ -29,9 +33,11 @@ private:
 
 public:
     Deck();
+    size_t getSize();
     void shuffle();
     void addCard(T &);
     T drawCard();
+    Deck operator=(const T &);
     Deck operator+(const T &);
     Deck &operator+=(const T &);
     void ShowDeck() const;
@@ -40,12 +46,32 @@ public:
 };
 
 template <typename T>
+<<<<<<< HEAD
 size_t Deck<T>::getSize() const
+=======
+size_t Deck<T>::getSize()
+>>>>>>> c84b68129a09c74d4785f275994829183572eb76
 {
     return size;
 }
 
 template <typename T>
+<<<<<<< HEAD
+=======
+Deck<T> Deck<T>::operator=(const T &_other)
+{
+    if (*this != &_other)
+    {
+        for (size_t i = 0; i < _other.getSize(); i++)
+        {
+            container[i] = _other[i];
+        }
+    }
+    return *this;
+}
+
+template <typename T>
+>>>>>>> c84b68129a09c74d4785f275994829183572eb76
 Deck<T>::Deck()
 {
     size = 0;
@@ -54,7 +80,10 @@ Deck<T>::Deck()
 template <typename T>
 T &Deck<T>::operator[](size_t pos)
 {
-    return container[pos];
+    if (pos < size)
+        return container[pos];
+    else
+        std::cout << "There less than " << pos << " card in the deck" << std::endl;
 }
 
 template <typename T>
@@ -113,9 +142,14 @@ void Deck<T>::ShowDeck() const
 {
     for (size_t i = 0; i < size; i++)
     {
-        std::cout << i << std::endl;
+        std::cout << "Card: " << i + 1 << std::endl;
         container[i].FullStats();
-        std::cout << std::endl;
     }
+<<<<<<< HEAD
 }
+=======
+    std::cout << std::endl;
+}
+
+>>>>>>> c84b68129a09c74d4785f275994829183572eb76
 #endif

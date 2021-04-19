@@ -40,15 +40,15 @@ void WaterCard::changeCardName(MyString _cardName)
     cardName = _cardName;
 }
 
-void WaterCard::changeBaseDemage(size_t _base)
+void WaterCard::changeBaseDemage(int _base)
 {
-    baseDemage = _base;
+    baseDemage += _base;
     overallDemage = bonusDemage + baseDemage;
 }
 
-void WaterCard::changeBonusDemage(size_t _bonus)
+void WaterCard::changeBonusDemage(int _bonus)
 {
-    bonusDemage = _bonus;
+    bonusDemage += _bonus;
     overallDemage = bonusDemage + baseDemage;
 }
 
