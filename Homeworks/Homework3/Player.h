@@ -2,6 +2,10 @@
 #define PLAYER_H
 
 #include "Deck.h"
+#include "MyString.h"
+#include <fstream>
+
+template <typename T, typename V>
 
 template <typename T, typename V>
 class Player

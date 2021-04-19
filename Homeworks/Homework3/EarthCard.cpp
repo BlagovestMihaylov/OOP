@@ -35,6 +35,15 @@ EarthCard::EarthCard(MyString _carName, size_t _base, size_t _bonus)
     overallDemage = bonusDemage + baseDemage;
 }
 
+// EarthCard::EarthCard(EarthCard &E)
+// {
+//     cardName = E.cardName;
+//     cardType = 3;
+//     baseDemage = E.baseDemage;
+//     bonusDemage = E.bonusDemage;
+//     overallDemage = baseDemage + overallDemage;
+// }
+
 void EarthCard::changeCardName(MyString _cardName)
 {
     cardName = _cardName;
@@ -92,6 +101,6 @@ void EarthCard::FullStats() const
 {
     std::cout << "Name of the Card: ";
     cardName.printString();
-    std::cout << "Power of the card: " << overallDemage << " ( "<< baseDemage << " Base Power + " << bonusDemage << " Bonus Power )" << std::endl;
+    std::cout << "Power of the card: " << overallDemage << " ( " << baseDemage << " Base Power + " << bonusDemage << " Bonus Power )" << std::endl;
     std::cout << "Type of the card: Earth" << std::endl;
 }

@@ -1,6 +1,9 @@
 #ifndef DECK_H
 #define DECK_H
+<<<<<<< HEAD
+=======
 
+>>>>>>> c84b68129a09c74d4785f275994829183572eb76
 #include <iostream>
 #include "EarthCard.h"
 #include "WaterCard.h"
@@ -38,16 +41,23 @@ public:
     Deck operator+(const T &);
     Deck &operator+=(const T &);
     void ShowDeck() const;
+    size_t getSize() const;
     T &operator[](size_t pos);
 };
 
 template <typename T>
+<<<<<<< HEAD
+size_t Deck<T>::getSize() const
+=======
 size_t Deck<T>::getSize()
+>>>>>>> c84b68129a09c74d4785f275994829183572eb76
 {
     return size;
 }
 
 template <typename T>
+<<<<<<< HEAD
+=======
 Deck<T> Deck<T>::operator=(const T &_other)
 {
     if (*this != &_other)
@@ -61,6 +71,7 @@ Deck<T> Deck<T>::operator=(const T &_other)
 }
 
 template <typename T>
+>>>>>>> c84b68129a09c74d4785f275994829183572eb76
 Deck<T>::Deck()
 {
     size = 0;
@@ -134,7 +145,11 @@ void Deck<T>::ShowDeck() const
         std::cout << "Card: " << i + 1 << std::endl;
         container[i].FullStats();
     }
+<<<<<<< HEAD
+}
+=======
     std::cout << std::endl;
 }
 
+>>>>>>> c84b68129a09c74d4785f275994829183572eb76
 #endif
