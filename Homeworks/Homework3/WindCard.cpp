@@ -40,19 +40,19 @@ void WindCard::changeCardName(MyString _cardName)
     cardName = _cardName;
 }
 
-void WindCard::changeBaseDemage(int _base)
+void WindCard::changeBaseDemage(size_t _base)
 {
-    baseDemage += _base;
+    baseDemage = _base;
     overallDemage = bonusDemage + baseDemage;
 }
 
-void WindCard::changeBonusDemage(int _bonus)
+void WindCard::changeBonusDemage(size_t _bonus)
 {
-    bonusDemage += _bonus;
+    bonusDemage = _bonus;
     overallDemage = bonusDemage + baseDemage;
 }
 
-void WindCard::addPower(size_t _moreDMG)
+void WindCard::addPower(int _moreDMG)
 {
     bonusDemage += _moreDMG;
     overallDemage = bonusDemage + baseDemage;

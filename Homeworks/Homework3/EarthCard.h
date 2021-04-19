@@ -19,9 +19,9 @@ public:
     //EarthCard(EarthCard&);
 
     void changeCardName(MyString);
-    void changeBaseDemage(int);
-    void changeBonusDemage(int);
-    void addPower(size_t);
+    void changeBaseDemage(size_t);
+    void changeBonusDemage(size_t);
+    void addPower(int);
 
     MyString seeCardName() const;
     size_t BaseDemage() const;
