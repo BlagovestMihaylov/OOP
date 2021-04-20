@@ -23,13 +23,22 @@ public:
     void changePlayerName(MyString);
     void changeWins(size_t);
     void changeLosses(size_t);
+    void changeWins();
+    void changeLosses();
     void savePlayer(std::ofstream &) const;
     void nameReaderHelper(std::ifstream &, MyString);
     void loadPlayer(std::ifstream &);
     void addPrimaryDeck(Deck<T>);
     void addSecondaryDeck(Deck<V>);
     void FullStats() const;
+    void printName() const;
 };
+
+template <typename T, typename V>
+void Player<T, V>::printName() const
+{
+    playerName.printString();
+}
 
 template <typename T, typename V>
 void Player<T, V>::savePlayer(std::ofstream &out) const
@@ -43,10 +52,10 @@ template <typename T, typename V>
 void Player<T, V>::nameReaderHelper(std::ifstream &in, MyString _name)
 {
     char ch;
-    while (ch != '\n')
+    while (ch != ' ')
     {
         ch = in.get();
-        if (ch != '\n')
+        if (ch != ' ')
         {
             _name.push_back(ch);
         }
@@ -115,9 +124,21 @@ void Player<T, V>::changeWins(size_t _wins)
 }
 
 template <typename T, typename V>
+void Player<T, V>::changeWins()
+{
+    wins++;
+}
+
+template <typename T, typename V>
 void Player<T, V>::changeLosses(size_t _losses)
 {
     losses = _losses;
+}
+
+template <typename T, typename V>
+void Player<T, V>::changeLosses()
+{
+    losses++;
 }
 
 template <typename T, typename V>
