@@ -42,7 +42,7 @@ void Player<T, V>::savePlayer(std::ofstream &out) const
 template <typename T, typename V>
 void Player<T, V>::nameReaderHelper(std::ifstream &in, MyString _name)
 {
-    char ch = ' ';
+    char ch;
     while (ch != '\n')
     {
         ch = in.get();
