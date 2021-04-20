@@ -23,12 +23,43 @@ public:
     void changePlayerName(MyString);
     void changeWins(size_t);
     void changeLosses(size_t);
-    void savePlayer();
+    void savePlayer(std::ofstream &) const;
+    void nameReaderHelper(std::ifstream &, MyString);
+    void loadPlayer(std::ifstream &);
     void addPrimaryDeck(Deck<T>);
     void addSecondaryDeck(Deck<V>);
     void FullStats() const;
-    Player<T, V> loadPlayer();
 };
+
+template <typename T, typename V>
+void Player<T, V>::savePlayer(std::ofstream &out) const
+{
+    out << playerName.c_str() << std::endl;
+    out << wins << std::endl;
+    out << losses << std::endl;
+}
+
+template <typename T, typename V>
+void Player<T, V>::nameReaderHelper(std::ifstream &in, MyString _name)
+{
+    char ch = ' ';
+    while (ch != '\n')
+    {
+        ch = in.get();
+        if (ch != '\n')
+        {
+            _name.push_back(ch);
+        }
+    }
+}
+
+template <typename T, typename V>
+void Player<T, V>::loadPlayer(std::ifstream &in)
+{
+    nameReaderHelper(in, playerName);
+    in >> wins;
+    in >> losses;
+}
 
 template <typename T, typename V>
 void Player<T, V>::FullStats() const
@@ -56,7 +87,7 @@ void Player<T, V>::addSecondaryDeck(Deck<V> _secondaryDeck)
 template <typename T, typename V>
 Player<T, V>::Player()
 {
-    playerName = "Unknown player";
+    playerName = nullptr;
     wins = 0;
     losses = 0;
 }
@@ -92,13 +123,13 @@ void Player<T, V>::changeLosses(size_t _losses)
 template <typename T, typename V>
 T Player<T, V>::drawFromPrimaryDeck()
 {
-    primaryDeck.drawCard();
+    return primaryDeck.drawCard();
 }
 
 template <typename T, typename V>
 V Player<T, V>::drawFromSecondaryDeck()
 {
-    secondaryDeck.drawCard();
+    return secondaryDeck.drawCard();
 }
 
 #endif

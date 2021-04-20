@@ -92,6 +92,26 @@ void FireCard::FullStats() const
 {
     std::cout << "Name of the Card: ";
     cardName.printString();
-    std::cout << "Power of the card: " << overallDemage << " ( "<< baseDemage << " Base Power + " << bonusDemage << " Bonus Power )" << std::endl;
+    std::cout << "Power of the card: " << overallDemage << " ( " << baseDemage << " Base Power + " << bonusDemage << " Bonus Power )" << std::endl;
     std::cout << "Type of the card: Fire" << std::endl;
+}
+
+void FireCard::nameReaderHelper(std::ifstream &in, MyString _name)
+{
+    char ch = ' ';
+    while (ch != '\n')
+    {
+        ch = in.get();
+        if (ch != '\n')
+        {
+            _name.push_back(ch);
+        }
+    }
+}
+
+void FireCard::loadCard(std::ifstream &in)
+{
+    nameReaderHelper(in, cardName);
+    in >> baseDemage;
+    in >> bonusDemage;
 }

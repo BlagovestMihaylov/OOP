@@ -30,6 +30,10 @@ public:
     size_t OverallDemage() const;
 
     void FullStats() const;
+
+    void nameReaderHelper(std::ifstream &, MyString);
+    void loadCard(std::ifstream &);
+    void saveCard(std::ofstream &);
 };
 
 #endif

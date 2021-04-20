@@ -104,3 +104,4 @@ void EarthCard::FullStats() const
     std::cout << "Power of the card: " << overallDemage << " ( " << baseDemage << " Base Power + " << bonusDemage << " Bonus Power )" << std::endl;
     std::cout << "Type of the card: Earth" << std::endl;
 }
+

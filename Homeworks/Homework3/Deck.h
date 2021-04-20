@@ -36,10 +36,25 @@ public:
     Deck operator=(const T &);
     Deck operator+(const T &);
     Deck &operator+=(const T &);
+    void loadDeck(std::ifstream &, int);
+    MyString nameReaderHelper(std::ifstream &);
     void ShowDeck() const;
     size_t getSize() const;
     T &operator[](size_t pos);
 };
+
+template <typename T>
+void Deck<T>::loadDeck(std::ifstream &in, int count)
+{
+
+    for (int i = 0; i < count; i++)
+    {
+        T temp;
+        temp.loadCard(in);
+        addCard(temp);
+        
+    }
+}
 
 template <typename T>
 size_t Deck<T>::getSize()
