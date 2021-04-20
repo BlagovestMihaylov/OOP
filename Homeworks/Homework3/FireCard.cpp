@@ -114,4 +114,5 @@ void FireCard::loadCard(std::ifstream &in)
     nameReaderHelper(in, cardName);
     in >> baseDemage;
     in >> bonusDemage;
+    cardType = 2;
 }
