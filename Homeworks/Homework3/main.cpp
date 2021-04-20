@@ -1,5 +1,5 @@
 #include <iostream>
-#include "MyString.h"
+#include "String.h"
 #include "EarthCard.h"
 #include "FireCard.h"
 #include "WindCard.h"
@@ -251,18 +251,19 @@ int main()
     player1.changeLosses(4);
     player1.changeWins(2);
     Player<FireCard, WindCard> player2;
+    player2.changePlayerName("maria");
     player2.changeLosses(3);
     player2.changeWins(3);
 
     Deck<WaterCard> waterDeck;
 
-    WaterCard Water("Riven", 10, 69);
+    WaterCard Water("Riven", 36, 213);
     Water.addPower(21);
     Water.changeCardName("Nami");
-    WaterCard Water1("Nami1", 10, 69);
-    WaterCard Water2("Nami2", 10, 69);
-    WaterCard Water3("Nami3", 10, 69);
-    WaterCard Water4("Nami1", 10, 69);
+    WaterCard Water1("Nami1", 36, 43);
+    WaterCard Water2("Nami2", 39, 431);
+    WaterCard Water3("Nami3", 39, 41);
+    WaterCard Water4("Nami1", 39, 413);
 
     waterDeck.addCard(Water);
     waterDeck.addCard(Water1);
@@ -272,13 +273,13 @@ int main()
 
     Deck<EarthCard> earthDeck;
 
-    EarthCard Earth("Darius", 10, 69);
+    EarthCard Earth("Darius", 40, 51);
     Earth.addPower(21);
     Earth.changeCardName("Malphite");
-    EarthCard Earth1("Maplhite1", 10, 69);
-    EarthCard Earth2("Maplhite2", 10, 69);
-    EarthCard Earth3("Maplhite3", 10, 69);
-    EarthCard Earth4("Maplhite1", 10, 69);
+    EarthCard Earth1("Maplhite1", 43, 55);
+    EarthCard Earth2("Maplhite2", 42, 42);
+    EarthCard Earth3("Maplhite3", 42, 54);
+    EarthCard Earth4("Maplhite1", 47, 542);
 
     earthDeck.addCard(Earth);
     earthDeck.addCard(Earth1);
@@ -288,13 +289,13 @@ int main()
 
     Deck<FireCard> fireDeck;
 
-    FireCard Fire("Riven", 10, 69);
+    FireCard Fire("Riven", 70, 542);
     Fire.addPower(21);
     Fire.changeCardName("Brand");
-    FireCard Fire1("Brand1", 10, 69);
-    FireCard Fire2("Brand2", 10, 69);
-    FireCard Fire3("Brand3", 10, 69);
-    FireCard Fire4("Brand1", 10, 69);
+    FireCard Fire1("Brand1", 72, 51);
+    FireCard Fire2("Brand2", 71, 98);
+    FireCard Fire3("Brand3", 79, 94);
+    FireCard Fire4("Brand1", 78, 93);
 
     fireDeck.addCard(Fire);
     fireDeck.addCard(Fire1);
@@ -304,13 +305,13 @@ int main()
 
     Deck<WindCard> windDeck;
 
-    WindCard Wind("Riven", 10, 69);
+    WindCard Wind("Riven", 60, 87);
     Wind.addPower(21);
     Wind.changeCardName("Yasuo");
-    WindCard Wind1("Yasuo1", 10, 69);
-    WindCard Wind2("Yasuo2", 10, 69);
-    WindCard Wind3("Yasuo3", 10, 69);
-    WindCard Wind4("Yasuo1", 10, 69);
+    WindCard Wind1("Yasuo1", 61, 84);
+    WindCard Wind2("Yasuo2", 6152, 87);
+    WindCard Wind3("Yasuo3", 68, 81);
+    WindCard Wind4("Yasuo1", 682, 36);
     windDeck.addCard(Wind);
     windDeck.addCard(Wind1);
     windDeck.addCard(Wind2);
@@ -324,10 +325,13 @@ int main()
     // std::ifstream in1("player1.txt");
     // std::ifstream in2("player2.txt");
     // player1.loadPlayer(in1);
-    // player2.loadPlayer(in2);
+    //player2.loadPlayer(in2);
     //std::ofstream out("dataLog.txt");
     // player1.savePlayer(out);
+    //player2.savePlayer(out);
 
     //player1.FullStats();
+    // player2.FullStats();
     fight(player1, player2);
+    //fight(player1, player2);
 }
