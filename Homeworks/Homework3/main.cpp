@@ -108,7 +108,27 @@ int whichCounter(bool water, bool earth, bool fire, bool wind)
         return 0;
 }
 
-int fight(Player<WaterCard, EarthCard> player1, Player<FireCard, WindCard> player2)
+void endGame(int winner, Player<WaterCard, EarthCard> Player1, Player<FireCard, WindCard> Player2)
+{
+    if (winner == 1)
+    {
+        Player1.printName();
+        std::cout << " has defeated  " << std::endl;
+        Player2.printName();
+        Player1.changeWins();
+        Player2.changeLosses();
+    }
+    else
+    {
+        Player2.printName();
+        std::cout << " has defeated  " << std::endl;
+        Player1.printName();
+        Player2.changeWins();
+        Player1.changeLosses();
+    }
+}
+
+void fight(Player<WaterCard, EarthCard> player1, Player<FireCard, WindCard> player2)
 {
     int flag = 0;
     int p1 = 0;
@@ -166,7 +186,7 @@ int fight(Player<WaterCard, EarthCard> player1, Player<FireCard, WindCard> playe
             {
                 continue;
             }
-            continue;
+            break;
         case 2:
             counter(water, wind);
             if (water.OverallDemage() > wind.OverallDemage())
@@ -181,7 +201,7 @@ int fight(Player<WaterCard, EarthCard> player1, Player<FireCard, WindCard> playe
             {
                 continue;
             }
-            continue;
+            break;
         case 3:
             counter(earth, fire);
             if (earth.OverallDemage() > fire.OverallDemage())
@@ -196,7 +216,7 @@ int fight(Player<WaterCard, EarthCard> player1, Player<FireCard, WindCard> playe
             {
                 continue;
             }
-            continue;
+            break;
         case 4:
             counter(earth, wind);
             if (earth.OverallDemage() > wind.OverallDemage())
@@ -211,15 +231,15 @@ int fight(Player<WaterCard, EarthCard> player1, Player<FireCard, WindCard> playe
             {
                 continue;
             }
-            continue;
+            break;
         default:
             break;
         }
         if (p1 == 5)
-            return 1;
+            endGame(1, player1, player2);
         if (p2 == 5)
-            return 2;
-        return 0;
+            endGame(2, player1, player2);
+        break;
     }
 }
 
@@ -227,7 +247,12 @@ int main()
 {
 
     Player<WaterCard, EarthCard> player1;
+    player1.changePlayerName("Blagovest");
+    player1.changeLosses(4);
+    player1.changeWins(2);
     Player<FireCard, WindCard> player2;
+    player2.changeLosses(3);
+    player2.changeWins(3);
 
     Deck<WaterCard> waterDeck;
 
@@ -296,13 +321,13 @@ int main()
     player1.addSecondaryDeck(earthDeck);
     player2.addPrimaryDeck(fireDeck);
     player2.addSecondaryDeck(windDeck);
-    std::ifstream in1("player1.txt");
-    std::ifstream in2("player2.txt");
-    player1.loadPlayer(in1);
-    player2.loadPlayer(in2);
-    std::ofstream out("dataLog.txt");
-    player1.savePlayer(out);
+    // std::ifstream in1("player1.txt");
+    // std::ifstream in2("player2.txt");
+    // player1.loadPlayer(in1);
+    // player2.loadPlayer(in2);
+    //std::ofstream out("dataLog.txt");
+    // player1.savePlayer(out);
 
-   // player1.changePlayerName("gosho");
-    player1.FullStats();
+    //player1.FullStats();
+    fight(player1, player2);
 }
