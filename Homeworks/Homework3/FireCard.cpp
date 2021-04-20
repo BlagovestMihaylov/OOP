@@ -9,7 +9,7 @@ FireCard::FireCard()
     overallDemage = bonusDemage + baseDemage;
 }
 
-FireCard::FireCard(MyString _carName)
+FireCard::FireCard(String _carName)
 {
     cardName = _carName;
     cardType = 2;
@@ -18,7 +18,7 @@ FireCard::FireCard(MyString _carName)
     overallDemage = bonusDemage + baseDemage;
 }
 
-FireCard::FireCard(MyString _carName, size_t _base)
+FireCard::FireCard(String _carName, size_t _base)
 {
     cardName = _carName;
     cardType = 2;
@@ -26,7 +26,7 @@ FireCard::FireCard(MyString _carName, size_t _base)
     bonusDemage = 0;
     overallDemage = bonusDemage + baseDemage;
 }
-FireCard::FireCard(MyString _carName, size_t _base, size_t _bonus)
+FireCard::FireCard(String _carName, size_t _base, size_t _bonus)
 {
     cardName = _carName;
     cardType = 2;
@@ -35,7 +35,7 @@ FireCard::FireCard(MyString _carName, size_t _base, size_t _bonus)
     overallDemage = bonusDemage + baseDemage;
 }
 
-void FireCard::changeCardName(MyString _cardName)
+void FireCard::changeCardName(String _cardName)
 {
     cardName = _cardName;
 }
@@ -58,12 +58,12 @@ void FireCard::addPower(int _moreDMG)
     overallDemage = bonusDemage + baseDemage;
 }
 
-MyString FireCard::seeCardName() const
+String FireCard::seeCardName() const
 {
     return cardName;
 }
 
-MyString FireCard::seeCardType() const
+String FireCard::seeCardType() const
 {
     return "Fire";
 }
@@ -90,29 +90,28 @@ size_t FireCard::OverallDemage() const
 
 void FireCard::FullStats() const
 {
-    std::cout << "Name of the Card: ";
-    cardName.printString();
+    std::cout << "Name of the Card: " << cardName << std::endl;
     std::cout << "Power of the card: " << overallDemage << " ( " << baseDemage << " Base Power + " << bonusDemage << " Bonus Power )" << std::endl;
     std::cout << "Type of the card: Fire" << std::endl;
 }
 
-void FireCard::nameReaderHelper(std::ifstream &in, MyString _name)
-{
-    char ch = ' ';
-    while (ch != '\n')
-    {
-        ch = in.get();
-        if (ch != '\n')
-        {
-            _name.push_back(ch);
-        }
-    }
-}
+// void FireCard::nameReaderHelper(std::ifstream &in, String _name)
+// {
+//     char ch = ' ';
+//     while (ch != '\n')
+//     {
+//         ch = in.get();
+//         if (ch != '\n')
+//         {
+//             _name.push_back(ch);
+//         }
+//     }
+// }
 
-void FireCard::loadCard(std::ifstream &in)
-{
-    nameReaderHelper(in, cardName);
-    in >> baseDemage;
-    in >> bonusDemage;
-    cardType = 2;
-}
+// void FireCard::loadCard(std::ifstream &in)
+// {
+//     nameReaderHelper(in, cardName);
+//     in >> baseDemage;
+//     in >> bonusDemage;
+//     cardType = 2;
+// }

@@ -9,7 +9,7 @@ EarthCard::EarthCard()
     overallDemage = bonusDemage + baseDemage;
 }
 
-EarthCard::EarthCard(MyString _carName)
+EarthCard::EarthCard(String _carName)
 {
     cardName = _carName;
     cardType = 3;
@@ -18,7 +18,7 @@ EarthCard::EarthCard(MyString _carName)
     overallDemage = bonusDemage + baseDemage;
 }
 
-EarthCard::EarthCard(MyString _carName, size_t _base)
+EarthCard::EarthCard(String _carName, size_t _base)
 {
     cardName = _carName;
     cardType = 3;
@@ -26,7 +26,7 @@ EarthCard::EarthCard(MyString _carName, size_t _base)
     bonusDemage = 0;
     overallDemage = bonusDemage + baseDemage;
 }
-EarthCard::EarthCard(MyString _carName, size_t _base, size_t _bonus)
+EarthCard::EarthCard(String _carName, size_t _base, size_t _bonus)
 {
     cardName = _carName;
     cardType = 3;
@@ -44,7 +44,7 @@ EarthCard::EarthCard(MyString _carName, size_t _base, size_t _bonus)
 //     overallDemage = baseDemage + overallDemage;
 // }
 
-void EarthCard::changeCardName(MyString _cardName)
+void EarthCard::changeCardName(String _cardName)
 {
     cardName = _cardName;
 }
@@ -67,12 +67,12 @@ void EarthCard::addPower(int _moreDMG)
     overallDemage = bonusDemage + baseDemage;
 }
 
-MyString EarthCard::seeCardName() const
+String EarthCard::seeCardName() const
 {
     return cardName;
 }
 
-MyString EarthCard::seeCardType() const
+String EarthCard::seeCardType() const
 {
     return "Earth";
 }
@@ -99,9 +99,7 @@ size_t EarthCard::OverallDemage() const
 
 void EarthCard::FullStats() const
 {
-    std::cout << "Name of the Card: ";
-    cardName.printString();
+    std::cout << "Name of the Card: " << cardName << std::endl;
     std::cout << "Power of the card: " << overallDemage << " ( " << baseDemage << " Base Power + " << bonusDemage << " Bonus Power )" << std::endl;
     std::cout << "Type of the card: Earth" << std::endl;
 }
-

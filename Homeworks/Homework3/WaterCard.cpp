@@ -9,7 +9,7 @@ WaterCard::WaterCard()
     overallDemage = bonusDemage + baseDemage;
 }
 
-WaterCard::WaterCard(MyString _carName)
+WaterCard::WaterCard(String _carName)
 {
     cardName = _carName;
     cardType = 1;
@@ -18,7 +18,7 @@ WaterCard::WaterCard(MyString _carName)
     overallDemage = bonusDemage + baseDemage;
 }
 
-WaterCard::WaterCard(MyString _carName, size_t _base)
+WaterCard::WaterCard(String _carName, size_t _base)
 {
     cardName = _carName;
     cardType = 1;
@@ -26,7 +26,7 @@ WaterCard::WaterCard(MyString _carName, size_t _base)
     bonusDemage = 0;
     overallDemage = bonusDemage + baseDemage;
 }
-WaterCard::WaterCard(MyString _carName, size_t _base, size_t _bonus)
+WaterCard::WaterCard(String _carName, size_t _base, size_t _bonus)
 {
     cardName = _carName;
     cardType = 1;
@@ -35,7 +35,7 @@ WaterCard::WaterCard(MyString _carName, size_t _base, size_t _bonus)
     overallDemage = bonusDemage + baseDemage;
 }
 
-void WaterCard::changeCardName(MyString _cardName)
+void WaterCard::changeCardName(String _cardName)
 {
     cardName = _cardName;
 }
@@ -58,12 +58,12 @@ void WaterCard::addPower(int _moreDMG)
     overallDemage = bonusDemage + baseDemage;
 }
 
-MyString WaterCard::seeCardName() const
+String WaterCard::seeCardName() const
 {
     return cardName;
 }
 
-MyString WaterCard::seeCardType() const
+String WaterCard::seeCardType() const
 {
     return "Water";
 }
@@ -90,8 +90,7 @@ size_t WaterCard::OverallDemage() const
 
 void WaterCard::FullStats() const
 {
-    std::cout << "Name of the Card: ";
-    cardName.printString();
-    std::cout << "Power of the card: " << overallDemage << " ( "<< baseDemage << " Base Power + " << bonusDemage << " Bonus Power )" << std::endl;
+    std::cout << "Name of the Card: " << cardName << std::endl;
+    std::cout << "Power of the card: " << overallDemage << " ( " << baseDemage << " Base Power + " << bonusDemage << " Bonus Power )" << std::endl;
     std::cout << "Type of the card: Water" << std::endl;
 }

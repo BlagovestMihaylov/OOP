@@ -9,7 +9,7 @@ WindCard::WindCard()
     overallDemage = bonusDemage + baseDemage;
 }
 
-WindCard::WindCard(MyString _carName)
+WindCard::WindCard(String _carName)
 {
     cardName = _carName;
     cardType = 4;
@@ -18,7 +18,7 @@ WindCard::WindCard(MyString _carName)
     overallDemage = bonusDemage + baseDemage;
 }
 
-WindCard::WindCard(MyString _carName, size_t _base)
+WindCard::WindCard(String _carName, size_t _base)
 {
     cardName = _carName;
     cardType = 4;
@@ -26,7 +26,7 @@ WindCard::WindCard(MyString _carName, size_t _base)
     bonusDemage = 0;
     overallDemage = bonusDemage + baseDemage;
 }
-WindCard::WindCard(MyString _carName, size_t _base, size_t _bonus)
+WindCard::WindCard(String _carName, size_t _base, size_t _bonus)
 {
     cardName = _carName;
     cardType = 4;
@@ -35,7 +35,7 @@ WindCard::WindCard(MyString _carName, size_t _base, size_t _bonus)
     overallDemage = bonusDemage + baseDemage;
 }
 
-void WindCard::changeCardName(MyString _cardName)
+void WindCard::changeCardName(String _cardName)
 {
     cardName = _cardName;
 }
@@ -58,12 +58,12 @@ void WindCard::addPower(int _moreDMG)
     overallDemage = bonusDemage + baseDemage;
 }
 
-MyString WindCard::seeCardName() const
+String WindCard::seeCardName() const
 {
     return cardName;
 }
 
-MyString WindCard::seeCardType() const
+String WindCard::seeCardType() const
 {
     return "Wind";
 }
@@ -90,8 +90,7 @@ size_t WindCard::OverallDemage() const
 
 void WindCard::FullStats() const
 {
-    std::cout << "Name of the Card: ";
-    cardName.printString();
-    std::cout << "Power of the card: " << overallDemage << " ( "<< baseDemage << " Base Power + " << bonusDemage << " Bonus Power )" << std::endl;
+    std::cout << "Name of the Card: " << cardName << std::endl;
+    std::cout << "Power of the card: " << overallDemage << " ( " << baseDemage << " Base Power + " << bonusDemage << " Bonus Power )" << std::endl;
     std::cout << "Type of the card: Wind" << std::endl;
 }
