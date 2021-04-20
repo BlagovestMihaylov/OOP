@@ -37,7 +37,7 @@ public:
     Deck operator+(const T &);
     Deck &operator+=(const T &);
     void loadDeck(std::ifstream &, int);
-    MyString nameReaderHelper(std::ifstream &);
+    String nameReaderHelper(std::ifstream &);
     void ShowDeck() const;
     size_t getSize() const;
     T &operator[](size_t pos);

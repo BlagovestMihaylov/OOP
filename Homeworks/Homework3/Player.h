@@ -2,14 +2,14 @@
 #define PLAYER_H
 
 #include "Deck.h"
-#include "MyString.h"
+#include "String.h"
 #include <fstream>
 
 template <typename T, typename V>
 class Player
 {
 private:
-    MyString playerName;
+    String playerName;
     size_t wins;
     size_t losses;
     Deck<T> primaryDeck;
@@ -17,16 +17,16 @@ private:
 
 public:
     Player();
-    // Player(Mystring, size_t, size_t);
+    // Player(String, size_t, size_t);
     T drawFromPrimaryDeck();
     V drawFromSecondaryDeck();
-    void changePlayerName(MyString);
+    void changePlayerName(String);
     void changeWins(size_t);
     void changeLosses(size_t);
     void changeWins();
     void changeLosses();
     void savePlayer(std::ofstream &) const;
-    void nameReaderHelper(std::ifstream &, MyString);
+    void nameReaderHelper(std::ifstream &, String);
     void loadPlayer(std::ifstream &);
     void addPrimaryDeck(Deck<T>);
     void addSecondaryDeck(Deck<V>);
@@ -37,35 +37,35 @@ public:
 template <typename T, typename V>
 void Player<T, V>::printName() const
 {
-    playerName.printString();
+    std::cout << playerName << std::endl;
 }
 
 template <typename T, typename V>
 void Player<T, V>::savePlayer(std::ofstream &out) const
 {
-    out << playerName.c_str() << std::endl;
+    out << playerName << std::endl;
     out << wins << std::endl;
     out << losses << std::endl;
 }
 
-template <typename T, typename V>
-void Player<T, V>::nameReaderHelper(std::ifstream &in, MyString _name)
-{
-    char ch;
-    while (ch != ' ')
-    {
-        ch = in.get();
-        if (ch != ' ')
-        {
-            _name.push_back(ch);
-        }
-    }
-}
+// template <typename T, typename V>
+// void Player<T, V>::nameReaderHelper(std::ifstream &in, String _name)
+// {
+//     char ch = ' ';
+//     while (ch != '\n')
+//     {
+//         ch = in.get();
+//         if (ch != '\n')
+//         {
+//             _name + ch;
+//         }
+//     }
+//}
 
 template <typename T, typename V>
 void Player<T, V>::loadPlayer(std::ifstream &in)
 {
-    nameReaderHelper(in, playerName);
+    in >> playerName;
     in >> wins;
     in >> losses;
 }
@@ -73,7 +73,7 @@ void Player<T, V>::loadPlayer(std::ifstream &in)
 template <typename T, typename V>
 void Player<T, V>::FullStats() const
 {
-    std::cout << playerName.c_str() << std::endl;
+    std::cout << playerName << std::endl;
     std::cout << "Wins: " << wins << " Losses: " << losses << std::endl;
     std::cout << "Primary Deck:" << std::endl;
     primaryDeck.ShowDeck();
@@ -102,7 +102,7 @@ Player<T, V>::Player()
 }
 
 // template <typename T, typename V>
-// Player<T, V>::Player(MyString _name, size_t _wins, size_t _losses)
+// Player<T, V>::Player(String _name, size_t _wins, size_t _losses)
 // {
 //     playerName = _name;
 //     wins = _wins;
@@ -112,7 +112,7 @@ Player<T, V>::Player()
 // }
 
 template <typename T, typename V>
-void Player<T, V>::changePlayerName(MyString _name)
+void Player<T, V>::changePlayerName(String _name)
 {
     playerName = _name;
 }
