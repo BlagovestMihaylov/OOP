@@ -5,7 +5,6 @@
 #include "WaterCard.h"
 #include "FireCard.h"
 #include "WindCard.h"
-#include <bits/stdc++.h>
 #include <stdlib.h>
 
 template <typename T>

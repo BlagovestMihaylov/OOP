@@ -345,16 +345,16 @@ int main()
     player1.addSecondaryDeck(earthDeck);
     player2.addPrimaryDeck(fireDeck);
     player2.addSecondaryDeck(windDeck);
-    // std::ifstream in1("player1.txt");
-    // std::ifstream in2("player2.txt");
+    std::ifstream in1("player1.txt");
+    std::ifstream in2("player2.txt");
     // player1.loadPlayer(in1);
-    //player2.loadPlayer(in2);
-    //std::ofstream out("dataLog.txt");
-    // player1.savePlayer(out);
-    //player2.savePlayer(out);
+    // player2.loadPlayer(in2);
+     std::ofstream out("dataLog.txt");
+     player1.savePlayer(out);
+    // player2.savePlayer(out);
 
-    //player1.FullStats();
+    player1.FullStats();
     // player2.FullStats();
-    fight(player1, player2);
+   // fight(player1, player2);
     //fight(player1, player2);
 }

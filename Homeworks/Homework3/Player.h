@@ -65,7 +65,7 @@ void Player<T, V>::savePlayer(std::ofstream &out) const
 template <typename T, typename V>
 void Player<T, V>::loadPlayer(std::ifstream &in)
 {
-    in >> playerName;
+
     in >> wins;
     in >> losses;
 }

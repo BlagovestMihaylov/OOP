@@ -1,125 +1,284 @@
 #include <iostream>
 #include "String.h"
-#include <cctype>
+#include <cstring>
+#include <stdlib.h>
+#include <iostream>
 
-String &String::operator=(const String &st)
+int String::length() const
 {
-    if (this != &st)
+    if (array != nullptr)
     {
-        delete[] str;
-        len = st.len;
-        str = new char[len + 1U];
-        strcpy(str, st.str);
+        return strlen(array);
+    }
+    return 0;
+}
+
+String::String()
+{
+    array = nullptr;
+}
+
+char &String::operator[](int pos)
+{
+    return array[pos];
+}
+
+const char &String::operator[](int pos) const
+{
+    return array[pos];
+}
+
+String::String(const char *arg)
+{
+    array = new char[strlen(arg) + 2];
+    strcpy(array, arg);
+    array[length() + 1] = '\0';
+}
+
+String &String::operator=(const String &other)
+{
+    if (this != &other)
+    {
+        if (array != nullptr)
+            delete[] array;
+        array = new char[other.length() + 1];
+        strcpy(array, other.array);
     }
     return *this;
 }
 
-String &String::operator=(const char *s) 
+String::~String()
 {
-    delete[] str;
-    len = std::strlen(s);
-    str = new char[len + 1U];
-    strcpy(str, s);
+    if (array != nullptr)
+        delete[] array;
+}
+
+String &String::operator=(char c)
+{
+    if (array != nullptr)
+        delete[] array;
+    array = new char[2];
+    array[0] = c;
+    array[1] = '\0';
     return *this;
 }
 
-void String::resize(size_t n)
+String String::operator+(char c)
 {
-    if (n != len)
+    String result;
+    result.array = new char[length() + 2];
+    if (array != nullptr)
+        strcpy(result.array, array);
+    result.array[length()] = c;
+    result.array[length() + 1] = '\0';
+    return result;
+}
+
+bool String::operator==(const String &other) const
+{
+    return *this == other.array;
+}
+
+String::String(const String &other)
+{
+    array = new char[other.length() + 1];
+    strcpy(array, other.array);
+}
+
+std::istream &operator>>(std::istream &in, String &string)
+{
+
+    char c{};
+    if (string.length() == 0)
     {
-        char *temp = new char[n];
-        if (n > len)
+        while (c != '\n')
         {
-            strcpy(temp, str);
-            for (size_t i = len - 1; i < n; ++i)
-                str[i] = '\0';
+            c = in.get();
+            if (c != '\n')
+            {
+                string = string + c;
+            }
         }
-        else
-        { 
-            std::strncpy(temp, str, n - 1);
-            str[n - 1] = '\0';
+    }
+    else
+    {
+        string = "";
+        while (c != '\n')
+        {
+            c = in.get();
+            if (c != '\n')
+            {
+                string = string + c;
+            }
         }
-        len = n;
-        delete[] str;
-        str = temp;
+    }
+    return in;
+}
+
+std::ostream &operator<<(std::ostream &out, const String &string)
+{
+    out << string.array;
+    return out;
+}
+
+bool String::operator==(const char *arg) const
+{
+    if (length() != strlen(arg))
+    {
+        return false;
+    }
+    else
+    {
+        for (int i = 0; i < length(); i++)
+        {
+            if (array[i] != arg[i])
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
-String &String::operator+=(const String &s1)
+int String::get_count() const
 {
-    len += s1.len;
-    char *temp = new char[len + 1U];
-    strcpy(temp, str);
-    delete[] str;
-    str = temp;
-    std::strcat(str, s1.str);
+    int word_count = 0;
+    for (int i = 0; i < length(); i++)
+    {
+        if (array[i] == ' ')
+        {
+            word_count++;
+        }
+    }
+    if (word_count != 0)
+    {
+        word_count++;
+    }
+    return word_count;
+}
 
+String &String::operator=(const char *str)
+{
+    delete[] array;
+    array = new char[strlen(str) + 2];
+    strcpy(array, str);
+    array[length() + 1] = '\0';
     return *this;
 }
 
-size_t String::find(char c, size_t pos) const
+String String::get_word(int pos) const
 {
-    for (; pos < len; ++pos)
-        if (c == str[pos])
-            return pos;
-    return npos;
-}
-
-String String::operator+(const String &s1) const
-{
-    String s2;
-    s2.len = len + s1.len;
-    s2.str = new char[s2.len + 1];
-    strcpy(s2.str, str);
-    std::strcat(s2.str, s1.str);
-
-    return s2;
-}
-
-istream &operator>>(istream &is, String &st)
-{
-    char temp[String::ISLIM];
-    temp[String::ISLIM - 1] = '\0';
-
-    /*is.get(temp, String::ISLIM);
-	if (is)
-		st = temp;
-	while (is && is.get() != '\n')
-		continue;*/
-
-    int i;
-    do
+    String s;
+    for (int i = pos; i < length(); i++)
     {
-        i = 0;
-        is.get(temp[i]);
-        while (i < (String::ISLIM - 2) && !std::isspace(temp[i]))
-            is.get(temp[++i]);
-
-        if (i < (String::ISLIM - 2))
+        if (array[i] == ' ' || array[i] == '\n')
         {
-            is.putback(temp[i]); 
-            temp[i] = '\0';
+            break;
         }
-        st += temp;
-    } while (i == (String::ISLIM - 2));
-
-    return is;
+        s = s + array[i];
+    }
+    return s;
 }
 
-istream &getline(istream &is, String &st)
+String String::get_onWord(int pos) const
 {
-
-    char temp[String::ISLIM];
-    is.getline(temp, String::ISLIM);
-    st = temp;
-    while (is.fail() && !is.bad())
+    String s;
+    int cnt = 1;
+    for (int i = 0; i < length(); i++)
     {
-        if (is.eof())
-            return is;
-        is.clear();
-        is.getline(temp, String::ISLIM);
-        st += temp;
+        if (cnt == pos)
+        {
+            return get_word(i);
+        }
+        if (array[i] == ' ')
+        {
+            cnt++;
+        }
     }
+    return "";
+}
 
-    return is;
+String String::get_fromWord(int pos) const
+{
+    String s;
+    int cnt = 1;
+    int i = 0;
+    while (i < length())
+    {
+        if (cnt == pos)
+        {
+            break;
+        }
+        if (array[i] == ' ')
+        {
+            cnt++;
+        }
+        i++;
+    }
+    for (i; i < length(); i++)
+    {
+        s = s + array[i];
+    }
+    return s;
+}
+
+double String::get_double() const
+{
+    return atof(getRawString());
+}
+
+int String::get_int() const
+{
+    return atoi(getRawString());
+}
+
+char *String::getRawString() const
+{
+    return array;
+}
+
+bool String::isOnlyDateCharacters() const
+{
+    int cnt = 0;
+    for (int i = 0; i < length(); i++)
+    {
+        if (cnt > 2)
+        {
+            return false;
+        }
+        if (array[i] == '-')
+        {
+            cnt++;
+        }
+        else if (!(array[i] >= 48 && array[i] <= 57))
+        {
+            return false;
+        }
+    }
+    if (cnt < 2)
+    {
+        return false;
+    }
+    return true;
+}
+
+bool String::isOnlyNumbers() const
+{
+    int cnt = 0;
+    for (int i = 0; i < length(); i++)
+    {
+        if (cnt > 1)
+        {
+            return false;
+        }
+        if (array[i] == '.')
+        {
+            cnt++;
+        }
+        else if (!(array[i] >= 48 && array[i] <= 57))
+        {
+            return false;
+        }
+    }
+    return true;
 }
