@@ -28,11 +28,7 @@ public:
     String get_onWord(int pos) const;
     String get_fromWord(int pos) const;
 
-    double get_double() const;
-    int get_int() const;
-    char *getRawString() const;
-    bool isOnlyDateCharacters() const;
-    bool isOnlyNumbers() const;
+   
 
 private:
     char *array;
