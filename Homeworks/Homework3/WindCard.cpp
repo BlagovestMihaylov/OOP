@@ -88,6 +88,7 @@ size_t WindCard::OverallDemage() const
     return overallDemage;
 }
 
+
 void WindCard::FullStats() const
 {
     std::cout << "Name of the Card: " << cardName << std::endl;

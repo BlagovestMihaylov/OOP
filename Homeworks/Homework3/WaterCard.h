@@ -30,6 +30,7 @@ public:
     size_t OverallDemage() const;
 
     void FullStats() const;
+    WaterCard &operator=(const WaterCard& _other);
 };
 
 #endif

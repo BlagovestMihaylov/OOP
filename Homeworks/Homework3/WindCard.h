@@ -29,6 +29,7 @@ public:
     String seeCardType() const;
     size_t OverallDemage() const;
 
+
     void FullStats() const;
 };
 
