@@ -51,7 +51,6 @@ void Deck<T>::loadDeck(std::ifstream &in, int count)
         T temp;
         temp.loadCard(in);
         addCard(temp);
-        
     }
 }
 
@@ -100,18 +99,19 @@ Deck<T> Deck<T>::operator+(const T &card)
     temp.addCard(card);
     return temp;
 }
-template <typename T>
-Deck<T> &Deck<T>::operator+=(const T &card)
-{
-    container[size++] = card;
-    return container;
-}
 
 template <typename T>
 void Deck<T>::addCard(T &card)
 {
     if (size <= 30 && duplicates(card))
         container[size++] = card;
+}
+
+template <typename T>
+Deck<T> &Deck<T>::operator+=(const T &card)
+{
+    addCard(card);
+    return *this;
 }
 
 template <typename T>
