@@ -29,7 +29,7 @@ public:
     String seeCardType() const;
     size_t OverallDemage() const;
 
-
+    WindCard& operator=(const WindCard&);
     void FullStats() const;
 };
 

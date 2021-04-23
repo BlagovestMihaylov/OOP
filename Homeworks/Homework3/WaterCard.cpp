@@ -91,10 +91,11 @@ size_t WaterCard::OverallDemage() const
 WaterCard &WaterCard::operator=(const WaterCard &_other)
 {
     baseDemage = _other.baseDemage;
-    bonusDemage= _other.bonusDemage;
+    bonusDemage = _other.bonusDemage;
     cardType = 1;
     overallDemage = _other.overallDemage;
     cardName = _other.cardName;
+    return *this;
 }
 
 void WaterCard::FullStats() const

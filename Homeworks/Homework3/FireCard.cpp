@@ -88,6 +88,16 @@ size_t FireCard::OverallDemage() const
     return overallDemage;
 }
 
+FireCard &FireCard::operator=(const FireCard &_other)
+{
+    baseDemage = _other.baseDemage;
+    bonusDemage = _other.bonusDemage;
+    cardType = 2;
+    overallDemage = _other.overallDemage;
+    cardName = _other.cardName;
+    return *this;
+}
+
 void FireCard::FullStats() const
 {
     std::cout << "Name of the Card: " << cardName << std::endl;

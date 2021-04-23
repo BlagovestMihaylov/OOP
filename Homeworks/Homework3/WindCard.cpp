@@ -88,6 +88,15 @@ size_t WindCard::OverallDemage() const
     return overallDemage;
 }
 
+WindCard &WindCard::operator=(const WindCard &_other)
+{
+    baseDemage = _other.baseDemage;
+    bonusDemage = _other.bonusDemage;
+    cardType = 4;
+    overallDemage = _other.overallDemage;
+    cardName = _other.cardName;
+    return *this;
+}
 
 void WindCard::FullStats() const
 {

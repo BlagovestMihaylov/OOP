@@ -97,6 +97,16 @@ size_t EarthCard::OverallDemage() const
     return overallDemage;
 }
 
+EarthCard &EarthCard::operator=(const EarthCard &_other)
+{
+    baseDemage = _other.baseDemage;
+    bonusDemage = _other.bonusDemage;
+    cardType = 3;
+    overallDemage = _other.overallDemage;
+    cardName = _other.cardName;
+    return *this;
+}
+
 void EarthCard::FullStats() const
 {
     std::cout << "Name of the Card: " << cardName << std::endl;

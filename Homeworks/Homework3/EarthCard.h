@@ -30,6 +30,8 @@ public:
     String seeCardType() const;
     size_t OverallDemage() const;
 
+    EarthCard &operator=(const EarthCard &);
+
     void FullStats() const;
 };
 

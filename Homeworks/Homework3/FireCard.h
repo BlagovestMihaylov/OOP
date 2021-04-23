@@ -31,6 +31,8 @@ public:
 
     void FullStats() const;
 
+    FireCard& operator=(const FireCard&);
+
     void nameReaderHelper(std::ifstream &, String);
     void loadCard(std::ifstream &);
     void saveCard(std::ofstream &);
