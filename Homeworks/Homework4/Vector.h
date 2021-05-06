@@ -33,6 +33,7 @@ public:
     T &operator[](int index);
     T const &at(int index) const;
     T const &operator[](int index) const;
+    void printVector() const;
 
 protected:
     T *&list();
@@ -302,4 +303,14 @@ std::ostream &operator<<(std::ostream &out, Vector<T> const &obj)
     return out;
 }
 
-#endif 
+template <typename T>
+void Vector<T>::printVector() const
+{
+    for (int i = 0; i < m_size; i++)
+    {
+        std::cout << m_list[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
+#endif
