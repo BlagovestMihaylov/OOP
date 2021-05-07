@@ -5,6 +5,7 @@
 class FireCard
 {
 private:
+    //! private
     String cardName;
     size_t baseDemage;
     size_t bonusDemage;
@@ -12,6 +13,7 @@ private:
     size_t overallDemage;
 
 public:
+    //! public
     FireCard();
     FireCard(String);
     FireCard(String, size_t);
@@ -31,7 +33,7 @@ public:
 
     void FullStats() const;
 
-    FireCard& operator=(const FireCard&);
+    FireCard &operator=(const FireCard &);
 
     void nameReaderHelper(std::ifstream &, String);
     void loadCard(std::ifstream &);

@@ -1,0 +1,74 @@
+.TH "String" 3 "Fri May 7 2021" "Version 0.2" "Hello" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+String
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBString\fP (const char *)"
+.br
+.ti -1c
+.RI "\fBString\fP (const \fBString\fP &)"
+.br
+.ti -1c
+.RI "\fBString\fP & \fBoperator=\fP (const \fBString\fP &)"
+.br
+.ti -1c
+.RI "\fBString\fP & \fBoperator=\fP (const char *)"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const char *) const"
+.br
+.ti -1c
+.RI "bool \fBoperator==\fP (const \fBString\fP &) const"
+.br
+.ti -1c
+.RI "char & \fBoperator[]\fP (int pos)"
+.br
+.ti -1c
+.RI "const char & \fBoperator[]\fP (int pos) const"
+.br
+.ti -1c
+.RI "\fBString\fP & \fBoperator=\fP (char)"
+.br
+.ti -1c
+.RI "\fBString\fP \fBoperator+\fP (char)"
+.br
+.ti -1c
+.RI "int \fBlength\fP () const"
+.br
+.ti -1c
+.RI "int \fBget_count\fP () const"
+.br
+.ti -1c
+.RI "\fBString\fP \fBget_word\fP (int pos) const"
+.br
+.ti -1c
+.RI "\fBString\fP \fBget_onWord\fP (int pos) const"
+.br
+.ti -1c
+.RI "\fBString\fP \fBget_fromWord\fP (int pos) const"
+.br
+.in -1c
+.SS "Friends"
+
+.in +1c
+.ti -1c
+.RI "std::istream & \fBoperator>>\fP (std::istream &, \fBString\fP &)"
+.br
+.ti -1c
+.RI "std::ostream & \fBoperator<<\fP (std::ostream &, const \fBString\fP &)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 5 of file String\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Hello from the source code\&.

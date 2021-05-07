@@ -65,7 +65,7 @@ void Player<T, V>::savePlayer(std::ofstream &out) const
 template <typename T, typename V>
 void Player<T, V>::loadPlayer(std::ifstream &in)
 {
-
+    in >> playerName;
     in >> wins;
     in >> losses;
 }
@@ -96,7 +96,7 @@ void Player<T, V>::addSecondaryDeck(Deck<V> _secondaryDeck)
 template <typename T, typename V>
 Player<T, V>::Player()
 {
-    playerName = nullptr;
+    playerName = "unknow";
     wins = 0;
     losses = 0;
 }

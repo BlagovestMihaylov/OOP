@@ -1,0 +1,60 @@
+.TH "Deck< T >" 3 "Fri May 7 2021" "Version 0.2" "Hello" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Deck< T >
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "size_t \fBgetSize\fP ()"
+.br
+.ti -1c
+.RI "void \fBshuffle\fP ()"
+.br
+.ti -1c
+.RI "void \fBaddCard\fP (T &)"
+.br
+.ti -1c
+.RI "T \fBdrawCard\fP ()"
+.br
+.ti -1c
+.RI "\fBDeck\fP \fBoperator=\fP (const T &)"
+.br
+.ti -1c
+.RI "\fBDeck\fP \fBoperator+\fP (const T &)"
+.br
+.ti -1c
+.RI "\fBDeck\fP & \fBoperator+=\fP (const T &)"
+.br
+.ti -1c
+.RI "void \fBloadDeck\fP (std::ifstream &, int)"
+.br
+.ti -1c
+.RI "\fBString\fP \fBnameReaderHelper\fP (std::ifstream &)"
+.br
+.ti -1c
+.RI "void \fBShowDeck\fP () const"
+.br
+.ti -1c
+.RI "size_t \fBgetSize\fP () const"
+.br
+.ti -1c
+.RI "T & \fBoperator[]\fP (size_t pos)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<typename T>
+.br
+class Deck< T >"
+.PP
+Definition at line 11 of file Deck\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Hello from the source code\&.

@@ -1,0 +1,66 @@
+.TH "Player< T, V >" 3 "Fri May 7 2021" "Version 0.2" "Hello" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Player< T, V >
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "T \fBdrawFromPrimaryDeck\fP ()"
+.br
+.ti -1c
+.RI "V \fBdrawFromSecondaryDeck\fP ()"
+.br
+.ti -1c
+.RI "void \fBchangePlayerName\fP (\fBString\fP)"
+.br
+.ti -1c
+.RI "void \fBchangeWins\fP (size_t)"
+.br
+.ti -1c
+.RI "void \fBchangeLosses\fP (size_t)"
+.br
+.ti -1c
+.RI "void \fBchangeWins\fP ()"
+.br
+.ti -1c
+.RI "void \fBchangeLosses\fP ()"
+.br
+.ti -1c
+.RI "void \fBsavePlayer\fP (std::ofstream &) const"
+.br
+.ti -1c
+.RI "void \fBnameReaderHelper\fP (std::ifstream &, \fBString\fP)"
+.br
+.ti -1c
+.RI "void \fBloadPlayer\fP (std::ifstream &)"
+.br
+.ti -1c
+.RI "void \fBaddPrimaryDeck\fP (\fBDeck\fP< T >)"
+.br
+.ti -1c
+.RI "void \fBaddSecondaryDeck\fP (\fBDeck\fP< V >)"
+.br
+.ti -1c
+.RI "void \fBFullStats\fP () const"
+.br
+.ti -1c
+.RI "void \fBprintName\fP () const"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SS "template<typename T, typename V>
+.br
+class Player< T, V >"
+.PP
+Definition at line 9 of file Player\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Hello from the source code\&.
