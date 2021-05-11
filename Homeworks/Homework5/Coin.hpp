@@ -41,6 +41,10 @@ private:
 public:
     bool flip();
     void print() const;
+    double BulgarianToGermanCoin();
+    double BulgarianToGermanCoin(size_t);
+    double BulgarianToAmericanCoin();
+    double BulgarianToAmericanCoin(size_t);
 };
 
 #endif
@@ -56,6 +60,10 @@ private:
 public:
     bool flip();
     void print() const;
+    double AmericanToGermanCoin();
+    double AmericanToGermanCoin(size_t);
+    double AmericanToBulgarianCoin();
+    double AmericanToBulgarianCoin(size_t);
 };
 
 #endif
@@ -71,6 +79,10 @@ private:
 public:
     bool flip();
     void print() const;
+    double GermanToBulgarianCoin();
+    double GermanToBulgarianCoin(size_t);
+    double GermanToAmericanCoin();
+    double GermanToAmericanCoin(size_t);
 };
 
 #endif

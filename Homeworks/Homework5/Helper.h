@@ -1,9 +1,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include "Coin.hpp"
-#include "BulgarianCoin.hpp"
-#include "AmericanCoin.hpp"
-#include "GermanCoin.hpp"
 
 int masiv5050[10] = {1, 1, 1, 1, 1, 2, 2, 2, 2, 2};
 int masiv9010[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 2};
@@ -37,32 +34,32 @@ bool Chance9010()
         return false;
 }
 
-double BGtoUS(double a)
+double BGtoUS(double a, int coins)
 {
-    return a * 3;
+    return a * coins * 3;
 }
 
-double UStoBG(double a)
+double UStoBG(double a, int coins)
 {
-    return a / 3;
+    return a * coins / 3;
 }
 
-double BGtoDE(double a)
+double BGtoDE(double a, int coins)
 {
-    return a * 6;
+    return a * coins * 6;
 }
 
-double DEtoBG(double a)
+double DEtoBG(double a, int coins)
 {
-    return a / 6;
+    return a * coins / 6;
 }
 
-double DEtoUS(double a)
+double DEtoUS(double a, int coins)
 {
-    return a / 2.5;
+    return a * coins / 2.5;
 }
 
-double UStoDe(double a)
+double UStoDe(double a, int coins)
 {
-    return a * 2.5;
+    return a * coins * 2.5;
 }
