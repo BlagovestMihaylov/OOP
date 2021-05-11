@@ -16,15 +16,53 @@ Coin::Coin(String nat, int v)
 
 bool Coin::flip()
 {
-    Chance5050();
+    return Chance5050();
 }
 
 void Coin::print() const
 {
     std::cout << "Coin nationality: " << nationality << std::endl;
     std::cout << "Coin value: " << value << std::endl;
-    if (Chance5050)
+    if (Chance5050())
         std::cout << "Coin face is Heads\n";
     else
         std::cout << "Coin face is Tails\n";
+}
+
+void Coin::changeValue(double _newValue)
+{
+    value = _newValue;
+}
+
+String Coin::checkNationality() const
+{
+    return nationality;
+}
+
+double Coin::checkValue() const
+{
+    return value;
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+////BGCOIN
+
+bool BulgarianCoin::flip()
+{
+    return Chance3070();
+}
+
+///////////////////////////////////////////////////////////
+/////USCOIN
+
+bool AmericanCoin::flip()
+{
+    return Chance9010();
+}
+
+/////////////////////////////////////////////////////////////////
+////DECOIN
+bool GermanCoin::flip()
+{
+    return Chance5050();
 }
