@@ -1,6 +1,11 @@
+#ifndef HELPER_H
+#define HELPTER_H
+
 #include <stdlib.h>
 #include <time.h>
 #include "Coin.hpp"
+#include "Vector.hpp"
+#include "Wallet.hpp"
 
 int masiv5050[10] = {1, 1, 1, 1, 1, 2, 2, 2, 2, 2};
 int masiv9010[10] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 2};
@@ -63,3 +68,23 @@ double UStoDe(double a, int coins)
 {
     return a * coins * 2.5;
 }
+
+bool checkForMoneyType(String _string)
+{
+    if (_string == "UNKNOWN")
+        return true;
+    else
+        return false;
+}
+
+void addingMoneyWithDifferentType(String _walletType, Coin _coin)
+{
+    std::cout << "Error adding coin:\nexpected nationality " << _walletType << "\nrecived nationality " << _coin.checkNationality() << std::endl;
+}
+
+void notEmptyWalletChangeTypeError()
+{
+    std::cout << "Unable to change wallet type, please make sure you are not changing type of not empty wallet" << std::endl;
+}
+
+#endif

@@ -46,6 +46,11 @@ double Coin::checkValue() const
 
 ////////////////////////////////////////////////////////////////////////////////////
 ////BGCOIN
+BulgarianCoin::BulgarianCoin()
+{
+    nationality = "BG";
+    value = 0;
+}
 
 bool BulgarianCoin::flip()
 {
@@ -75,6 +80,12 @@ double BulgarianCoin::BulgarianToGermanCoin(size_t coins)
 ///////////////////////////////////////////////////////////
 /////USCOIN
 
+AmericanCoin::AmericanCoin()
+{
+    nationality = "US";
+    value = 0;
+}
+
 bool AmericanCoin::flip()
 {
     return Chance9010();
@@ -101,6 +112,13 @@ double AmericanCoin::AmericanToGermanCoin(size_t coins)
 }
 /////////////////////////////////////////////////////////////////
 ////DECOIN
+
+GermanCoin::GermanCoin()
+{
+    nationality = "DE";
+    value = 0;
+}
+
 bool GermanCoin::flip()
 {
     return Chance5050();

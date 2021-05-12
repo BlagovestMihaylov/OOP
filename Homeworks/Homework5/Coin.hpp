@@ -17,10 +17,8 @@ protected:
     double value;
 
 public:
-    virtual bool flip();
     void print() const;
-
-public:
+    virtual bool flip();
     Coin();
     Coin(String, int);
     void changeValue(double);
@@ -35,12 +33,11 @@ public:
 
 class BulgarianCoin : public Coin
 {
-private:
-    const String nationality = "BG";
 
 public:
     bool flip();
-    void print() const;
+    BulgarianCoin();
+   //void print() const;
     double BulgarianToGermanCoin();
     double BulgarianToGermanCoin(size_t);
     double BulgarianToAmericanCoin();
@@ -54,12 +51,12 @@ public:
 
 class AmericanCoin : public Coin
 {
-private:
-    const String nationality = "US";
+
 
 public:
     bool flip();
-    void print() const;
+    AmericanCoin();
+   // void print() const;
     double AmericanToGermanCoin();
     double AmericanToGermanCoin(size_t);
     double AmericanToBulgarianCoin();
@@ -73,12 +70,11 @@ public:
 
 class GermanCoin : public Coin
 {
-private:
-    const String nationality = "DE";
 
 public:
     bool flip();
-    void print() const;
+    GermanCoin();
+   // void print() const;
     double GermanToBulgarianCoin();
     double GermanToBulgarianCoin(size_t);
     double GermanToAmericanCoin();
