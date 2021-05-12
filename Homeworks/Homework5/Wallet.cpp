@@ -40,6 +40,7 @@ void Wallet::addCoin(Coin _coin)
         if (moneyType == _coin.checkNationality())
         {
             preAddCoin(_coin);
+            normalisingValues(money);
         }
         else
         {
