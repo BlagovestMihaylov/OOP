@@ -1,6 +1,6 @@
 
 #ifndef HELPER_H
-#define HELPTER_H
+#define HELPER_H
 
 #include <stdlib.h>
 #include <time.h>
@@ -136,23 +136,27 @@ void normalisingValues(Vector<Coin> _vector)
 void addingMoneyWithDifferentType(String _walletType, Coin _coin)
 {
     std::cout << "Error adding coin:\nexpected nationality " << _walletType << "\nrecived nationality " << _coin.checkNationality() << std::endl;
+    sleeping(2);
 }
 
 void notEmptyWalletChangeTypeError()
 {
     std::cout << "Unable to change wallet type, please make sure you are not changing type of not empty wallet" << std::endl;
+    sleeping(2);
 }
 
-bool isDiscountMatch(String _productSide, String _coinSide)
+bool isDiscountMatch(String _productSide, String _coinSide, double _discount)
 {
     if (_productSide == _coinSide)
     {
-        std::cout << "Coins' sides match, you get a 50% discount!\n";
+        std::cout << "Coins' sides match, you get a " << _discount << "% discount!\n";
+        sleeping(2);
         return true;
     }
     else
     {
         std::cout << "Coins' sides dont match, you dont get a discount :(\n";
+        sleeping(2);
         return false;
     }
 }
@@ -163,11 +167,20 @@ void boughtWithBG(Coin _coin)
     double b = BGtoDE(a, 1);
     double c = BGtoUS(a, 1);
     if (a < b && a < c)
+    {
         std::cout << "It was cheapest to buy with BG coin, nice job!\n";
+        sleeping(2);
+    }
     if (b < a && b < c)
+    {
         std::cout << "It was cheapest to buy with DE coin, next time youll get more luck!\n";
+        sleeping(2);
+    }
     if (c < a && c < b)
+    {
         std::cout << "It was cheapest to buy with US coin, next time youll get more luck!\n";
+        sleeping(2);
+    }
 }
 
 void boughtWithUS(Coin _coin)
@@ -176,11 +189,20 @@ void boughtWithUS(Coin _coin)
     double b = UStoBG(a, 1);
     double c = UStoDe(a, 1);
     if (a < b && a < c)
+    {
         std::cout << "It was cheapest to buy with US coin, nice job!\n";
+        sleeping(2);
+    }
     if (b < a && b < c)
+    {
         std::cout << "It was cheapest to buy with BG coin, next time youll get more luck!\n";
+        sleeping(2);
+    }
     if (c < a && c < b)
+    {
         std::cout << "It was cheapest to buy with DE coin, next time youll get more luck!\n";
+        sleeping(2);
+    }
 }
 
 void boughtWithDE(Coin _coin)
@@ -189,30 +211,48 @@ void boughtWithDE(Coin _coin)
     double b = DEtoBG(a, 1);
     double c = DEtoUS(a, 1);
     if (a < b && a < c)
+    {
         std::cout << "It was cheapest to buy with DE coin, nice job!\n";
+        sleeping(2);
+    }
     if (b < a && b < c)
+    {
         std::cout << "It was cheapest to buy with BG coin, next time youll get more luck!\n";
+        sleeping(2);
+    }
     if (c < a && c < b)
+    {
         std::cout << "It was cheapest to buy with US coin, next time youll get more luck!\n";
+        sleeping(2);
+    }
 }
 
 void boughtProduct(String _productName, Coin _coin)
 {
     std::cout << _productName << " was bought with " << _coin.checkNationality() << " coin with a stock value of " << _coin.checkValue() << std::endl;
     if (_coin.checkNationality() == "BG")
+    {
         boughtWithBG(_coin);
+        sleeping(2);
+    }
     if (_coin.checkNationality() == "DE")
+    {
         boughtWithDE(_coin);
+        sleeping(2);
+    }
     if (_coin.checkNationality() == "US")
-        boiughtWithUs(_coin);
+    {
+        boughtWithUS(_coin);
+        sleeping(2);
+    }
 }
 
-void addCoinAlert(Vector _vec)
+void addCoinAlert(Vector<Coin> _vec)
 {
     std::cout << "New coin added. Total coins are: " << _vec.size();
 }
 
-void removeCoinAlert(Vector _vec)
+void removeCoinAlert(Vector<Coin> _vec)
 {
     std::cout << "Coin removed. Total coins left: " << _vec.size();
 }
