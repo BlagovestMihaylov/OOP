@@ -18,14 +18,14 @@ Coin::Coin(String nat, int v)
 
 bool Coin::flip()
 {
-    return Chance5050();
+    return helper::Chance5050();
 }
 
 void Coin::print() const
 {
     std::cout << "Coin nationality: " << nationality << std::endl;
     std::cout << "Coin value: " << value << std::endl;
-    if (Chance5050())
+    if (helper::Chance5050())
         std::cout << "Coin face is Heads\n";
     else
         std::cout << "Coin face is Tails\n";

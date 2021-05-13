@@ -22,15 +22,15 @@ String Wallet::getMoneyType()
 
 void Wallet::changerMoneyType(String _moneyType)
 {
-    if (checkForMoneyType(moneyType))
+    if (helper::checkForMoneyType(moneyType))
         moneyType = _moneyType;
     else
-        notEmptyWalletChangeTypeError();
+        helper::notEmptyWalletChangeTypeError();
 }
 
 void Wallet::addCoin(Coin _coin)
 {
-    if (checkForMoneyType)
+    if (helper::checkForMoneyType)
     {
         changerMoneyType(_coin.checkNationality());
         preAddCoin(_coin);
@@ -40,11 +40,11 @@ void Wallet::addCoin(Coin _coin)
         if (moneyType == _coin.checkNationality())
         {
             preAddCoin(_coin);
-            normalisingValues(money);
+            helper::normalisingValues(money);
         }
         else
         {
-            addingMoneyWithDifferentType(moneyType, _coin);
+            helper::addingMoneyWithDifferentType(moneyType, _coin);
         }
     }
 }
