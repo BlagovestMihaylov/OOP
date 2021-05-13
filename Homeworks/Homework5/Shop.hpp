@@ -15,4 +15,5 @@ public:
     void addProduct(Product);
     void removeProduct(int);
     void printShop() const;
+    Product &operator[](int);
 };

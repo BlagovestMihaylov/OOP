@@ -13,6 +13,7 @@ Wallet::Wallet(String _moneyType)
 void Wallet::preAddCoin(Coin _coin)
 {
     money.push(_coin);
+    std::cout << "Added coin\n";
 }
 
 String Wallet::getMoneyType()
@@ -22,10 +23,11 @@ String Wallet::getMoneyType()
 
 void Wallet::changerMoneyType(String _moneyType)
 {
-    if (helper::checkForMoneyType(moneyType))
-        moneyType = _moneyType;
-    else
-        helper::notEmptyWalletChangeTypeError();
+    // if (helper::checkForMoneyType(moneyType))
+    //     moneyType = _moneyType;
+    // else
+    //     helper::notEmptyWalletChangeTypeError();
+    moneyType = _moneyType;
 }
 
 void Wallet::addCoin(Coin _coin)
@@ -57,4 +59,19 @@ void Wallet::removeCoin()
 size_t Wallet::getSize()
 {
     return money.size();
+}
+
+Wallet &Wallet::operator=(const Wallet &_wallet)
+{
+    if (this != &_wallet)
+    {
+        this->moneyType = _wallet.moneyType;
+        this->money = _wallet.money;
+    }
+    return *this;
+}
+
+Coin &Wallet::operator[](int pos)
+{
+    return money[pos];
 }

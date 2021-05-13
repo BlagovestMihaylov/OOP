@@ -6,6 +6,9 @@
 class GermanCoin : public Coin
 {
 
+private:
+    String nationality = "DE";
+
 public:
     bool flip();
     GermanCoin();

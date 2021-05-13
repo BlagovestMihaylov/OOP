@@ -17,8 +17,18 @@ void Shop::removeProduct(int _index)
 
 void Shop::printShop() const
 {
-    for(int i =0; i<itemList.size(); ++i)
+    for (int i = 0; i < itemList.size(); ++i)
     {
-        std::cout<<i<<".  Product name: "<<itemList[i].getProductName()<<",  Product prize: "<<itemList[i].getProductPrize()<<std::endl;
+        std::cout << i << ".  Product name: " << itemList[i].getProductName() << ",  Product prize: " << itemList[i].getProductPrize() << std::endl;
     }
+}
+
+Product &Shop::operator[](int pos)
+{
+    return itemList[pos];
+}
+
+size_t Shop::getShopSize()
+{
+    return itemList.size();
 }

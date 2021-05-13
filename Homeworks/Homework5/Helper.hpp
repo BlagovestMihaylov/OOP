@@ -6,6 +6,7 @@
 #include "Coin.hpp"
 #include "Vector.hpp"
 #include <thread>
+#include "Wallet.hpp"
 
 namespace helper
 {
@@ -30,6 +31,8 @@ namespace helper
     void boughtWithUS(Coin _coin);
     void boughtWithDE(Coin _coin);
     void boughtProduct(String _productName, Coin _coin);
-    void addCoinAlert(Vector<Coin> _vec);
-    void removeCoinAlert(Vector<Coin> _vec);
+    //void addCoinAlert(Wallet __wallet);
+    //void removeCoinAlert(Wallet _wallet);
+    int randomWallet();
+   // bool emptyWalletCheck(Wallet);
 }

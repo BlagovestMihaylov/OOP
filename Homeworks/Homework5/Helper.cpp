@@ -241,13 +241,32 @@ namespace helper
         }
     }
 
-    void addCoinAlert(Vector<Coin> _vec)
+    // void addCoinAlert(Wallet _wallet)
+    // {
+    //     std::cout << "New coin added. Total coins are: " << _wallet.getSize();
+    // }
+
+    // void removeCoinAlert(Wallet _wallet)
+    // {
+    //     std::cout << "Coin removed. Total coins left: " << _wallet.getSize();
+    // }
+
+    int randomWallet()
     {
-        std::cout << "New coin added. Total coins are: " << _vec.size();
+        int i = rand() % 3 + 1;
+        return i;
     }
 
-    void removeCoinAlert(Vector<Coin> _vec)
-    {
-        std::cout << "Coin removed. Total coins left: " << _vec.size();
-    }
+    // bool emptyWalletCheck(Wallet _wallet)
+    // {
+    //     if (_wallet.getSize() == 0)
+    //     {
+    //         std::cout << "You are trying to buy with empty wallet. Sir please get some money\n\n\nCredissimo is waiting!!\n";
+    //         return true;
+    //     }
+    //     else
+    //     {
+    //         return false;
+    //     }
+    // }
 }

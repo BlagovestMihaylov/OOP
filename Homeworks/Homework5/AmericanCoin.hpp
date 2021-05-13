@@ -1,12 +1,12 @@
 #pragma once
 
-
 #include "Coin.hpp"
 #include "Helper.hpp"
 
 class AmericanCoin : public Coin
 {
-
+private:
+    String nationality = "US";
 
 public:
     bool flip();

@@ -19,5 +19,7 @@ public:
     String getMoneyType();
     void changerMoneyType(String);
     size_t getSize();
+    Wallet &operator=(const Wallet&);
+    Coin &operator[](int);
 };
 
