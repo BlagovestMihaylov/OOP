@@ -5,6 +5,10 @@
 #include <iostream>
 #include "Helper.hpp"
 
+
+class BulgarianCoin;
+class GermanCoin;
+class AmericanCoin;
 class Product
 {
 private:

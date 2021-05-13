@@ -2,6 +2,7 @@
 
 
 #include "Coin.hpp"
+#include "Helper.hpp"
 
 
 class BulgarianCoin : public Coin
