@@ -26,7 +26,7 @@ public:
     void remove(int index);
     bool empty() const;
     bool full() const;
-    unsigned size() const;
+    int size() const;
     unsigned free() const;
     unsigned capacity() const;
     bool fixed() const; // fixed size = !resizable
@@ -192,7 +192,7 @@ unsigned Vector<T>::capacity() const
 }
 
 template <typename T>
-unsigned Vector<T>::size() const
+int Vector<T>::size() const
 {
     return m_size;
 }

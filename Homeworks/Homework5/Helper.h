@@ -1,13 +1,12 @@
 
-#ifndef HELPER_H
-#define HELPER_H
+#pragma once
 
 #include <stdlib.h>
 #include <time.h>
 #include "Coin.hpp"
 #include "Vector.hpp"
-#include "Wallet.hpp"
 #include <thread>
+
 
 int const MAX_ARRAY_SIZE = 502;  // max divisions(500) + symbols for opening, closing (2)
 int const MAX_SLEEP_TIME = 2000; // in miliseconds
@@ -257,4 +256,3 @@ void removeCoinAlert(Vector<Coin> _vec)
     std::cout << "Coin removed. Total coins left: " << _vec.size();
 }
 
-#endif
