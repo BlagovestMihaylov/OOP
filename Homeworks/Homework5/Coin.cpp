@@ -1,4 +1,7 @@
-#include "Helper.hpp"
+#include "Coin.hpp"
+#include "AmericanCoin.hpp"
+#include "BulgarianCoin.hpp"
+#include "GermanCoin.hpp"
 
 
 Coin::Coin()
