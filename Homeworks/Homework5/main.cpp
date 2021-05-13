@@ -3,7 +3,7 @@
 #include "AmericanCoin.hpp"
 #include "BulgarianCoin.hpp"
 #include "GermanCoin.hpp"
-
+#include "Helper.hpp"
 int main()
 {
     BulgarianCoin bgc;

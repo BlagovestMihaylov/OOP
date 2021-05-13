@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "Helper.h"
+#include "Helper.hpp"
 
 class AmericanCoin : public Coin
 {

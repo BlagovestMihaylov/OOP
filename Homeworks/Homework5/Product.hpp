@@ -1,10 +1,9 @@
-#ifndef PRODUCT_HPP
-#define PRODUCT_HPP
+#pragma once
+
 
 #include "String.hpp"
 #include <iostream>
-#include "Helper.h"
-#include "Coin.hpp"
+#include "Helper.hpp"
 
 class Product
 {
@@ -25,4 +24,3 @@ public:
     const double getProductPrize() const;
 };
 
-#endif

@@ -1,9 +1,8 @@
-#ifndef WALLET_HPP
-#define WALLET_HPP
+#pragma once
+
 
 #include "Vector.hpp"
-#include "Coin.hpp"
-#include "Helper.h"
+#include "Helper.hpp"
 
 class Wallet
 {
@@ -22,4 +21,3 @@ public:
     size_t getSize();
 };
 
-#endif
